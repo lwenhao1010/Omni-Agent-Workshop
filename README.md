@@ -1,9 +1,9 @@
 # Omni-Agent Workshop|多维智能体工坊
 
 <div align="center">
-
 [![License](https://img.shields.io/badge/license-apache2.0-blue.svg)](LICENSE)
 [![基于 AstronAgent](https://img.shields.io/badge/基于-AstronAgent-blue.svg)](https://github.com/iflytek/astron-agent)
+
 
 </div>
 
@@ -11,19 +11,15 @@
 
 **Omni-Agent Workshop（多维智能体工坊）** 是一个基于科大讯飞 Astron—Agent 二次开发的 多维智能体平台。在本地部署的平台上搭建了三种不同类型的智能体，分别为指令型、工作流以及实时交互数字人。**指令型智能体**是一个精通多种语言的程序员。能够帮助用户高效完成各类编程语言相关的开发任务，提供高质量代码解决方案。**工作流智能体**是一个对用户提交的简历进行打分并根据不足给出改进的简历优化工作流。**实时交互数字人智能体**是一个解忧平台主持人，能将用户的内容转化为流畅、幽默的节目文本，确保每句话都能引起观众的共鸣。通过智能体工作流的编排，将用户输入的文本内容自动改写为播客风格的口播稿，并使用讯飞超拟人合成技术生成高质量语音。同时虚拟人会对内容进行播报。
 
-![指令型智能体](https://lwh.lwenhao.cn/rgzndl/codeagent.png)
+![](https://lwh.lwenhao.cn/rgzndl/codeagent.png)
 
-![工作流智能体](https://lwh.lwenhao.cn/rgzndl/workagent.png)
+![](https://lwh.lwenhao.cn/rgzndl/workagent.png)
 
-
-
-![实时交互数字人智能体](https://lwh.lwenhao.cn/rgzndl/numberagent.png)
-
-
+![](https://lwh.lwenhao.cn/rgzndl/numberagent.png)
 
 ### 核心能力
 
-- **AI 内容改写**：集成 DeepSeek 大模型，将普通文本智能改编为电台特色的播客风格逐字稿
+- **AI 内容改写**：集成科大讯飞的大模型，将普通文本智能改编为电台特色的播客风格逐字稿
 - **超拟人语音合成**：基于讯飞星火语音合成技术，生成自然流畅的播客音频
 - **可视化工作流编排**：通过 AstronAgent 的工作流引擎，实现"文本输入 → AI 改写 → 语音合成"的自动化流程
 - **开箱即用**：基于 Docker Compose 一键部署，无需复杂配置
