@@ -1,9 +1,7 @@
 # Omni-Agent Workshop|多维智能体工坊
 
-<div align="center">
 [![License](https://img.shields.io/badge/license-apache2.0-blue.svg)](LICENSE)
 [![基于 AstronAgent](https://img.shields.io/badge/基于-AstronAgent-blue.svg)](https://github.com/iflytek/astron-agent)
-
 
 </div>
 
