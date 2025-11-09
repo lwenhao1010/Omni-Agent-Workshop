@@ -1,0 +1,239 @@
+flowMeta:
+  name: 解忧电台
+  description: 我是“逐字稿”，专为播客和单口相声设计。我的使命是将您的原始内容转化为流畅、幽默的节目文本，确保每句话都能引起观众的共鸣，让您的表演更加生动有趣。
+  avatarIcon: https://oss-beijing-m8.openstorage.cn/SparkBotProd/aicloud-robot/user-icon/53da36314035022d61519e2e58fe6b3b.jpg
+  avatarColor: '#FFEAD5'
+  advancedConfig: '{"prologue":{"enabled":true,"inputExample":["","",""]},"textToSpeech":{"enabled":true,"vcn_cn":"x5_lingxiaotang_flow","vcn_en":"x4_EnUs_Luna"},"needGuide":false}'
+  category: 15
+  dslVersion: v1
+flowData:
+  nodes:
+  - id: node-start::d61b0f71-87ee-475e-93ba-f1607f0ce783
+    dragging: false
+    selected: false
+    width: 362
+    height: 74
+    position:
+      x: 327.3203740328563
+      y: 223.06461375728657
+    positionAbsolute:
+      x: 327.3203740328563
+      y: 223.06461375728657
+    type: 开始节点
+    data:
+      allowInputReference: false
+      allowOutputReference: true
+      label: 开始
+      status: ''
+      nodeMeta:
+        aliasName: 开始节点
+        nodeType: 基础节点
+      inputs: [
+        ]
+      outputs:
+      - id: 0918514b-72a8-4646-8dd9-ff4a8fc26d44
+        name: AGENT_USER_INPUT
+        nameErrMsg: ''
+        schema:
+          type: string
+          default: 用户本轮对话输入内容
+        required: true
+        deleteDisabled: true
+      nodeParam: {
+        }
+      icon: https://oss-beijing-m8.openstorage.cn/pro-bucket/sparkBot/common/workflow/icon/start-node-icon.png
+      description: 工作流的开启节点，用于定义流程调用所需的业务变量信息。
+      updatable: false
+  - id: node-end::cda617af-551e-462e-b3b8-3bb9a041bf88
+    dragging: false
+    selected: false
+    width: 362
+    height: 74
+    position:
+      x: 326.6160499728221
+      y: 614.3822770782938
+    positionAbsolute:
+      x: 326.6160499728221
+      y: 614.3822770782938
+    type: 结束节点
+    data:
+      allowInputReference: true
+      allowOutputReference: false
+      label: 结束
+      references:
+      - children:
+        - references:
+          - originId: spark-llm::fe4df6bf-221b-41d2-be76-dd46528f9b28
+            id: 4a49bbfb-8f16-4e6b-8362-c9d1a365b022
+            label: output
+            type: string
+            value: output
+            fileType: ''
+          label: ''
+          value: ''
+        label: 大模型_1
+        parentNode: true
+        value: spark-llm::fe4df6bf-221b-41d2-be76-dd46528f9b28
+      - children:
+        - references:
+          - originId: node-start::d61b0f71-87ee-475e-93ba-f1607f0ce783
+            id: 0918514b-72a8-4646-8dd9-ff4a8fc26d44
+            label: AGENT_USER_INPUT
+            type: string
+            value: AGENT_USER_INPUT
+            fileType: ''
+          label: ''
+          value: ''
+        label: 开始
+        parentNode: true
+        value: node-start::d61b0f71-87ee-475e-93ba-f1607f0ce783
+      status: ''
+      nodeMeta:
+        aliasName: 结束节点
+        nodeType: 基础节点
+      inputs:
+      - id: bc2738bd-93f6-4797-a190-7631b7c736b4
+        name: output
+        nameErrMsg: ''
+        schema:
+          type: string
+          value:
+            type: ref
+            content:
+              name: output
+              id: 4a49bbfb-8f16-4e6b-8362-c9d1a365b022
+              nodeId: spark-llm::fe4df6bf-221b-41d2-be76-dd46528f9b28
+            contentErrMsg: ''
+        fileType: ''
+      outputs: [
+        ]
+      nodeParam:
+        template: '{{output}}'
+        streamOutput: true
+        templateErrMsg: ''
+        outputMode: 1
+      icon: https://oss-beijing-m8.openstorage.cn/pro-bucket/sparkBot/common/workflow/icon/end-node-icon.png
+      description: 工作流的结束节点，用于输出工作流运行后的最终结果。
+      updatable: false
+  - id: spark-llm::fe4df6bf-221b-41d2-be76-dd46528f9b28
+    dragging: false
+    selected: true
+    width: 362
+    height: 124
+    position:
+      x: 326.75178428722825
+      y: 385.00298020667725
+    positionAbsolute:
+      x: 326.75178428722825
+      y: 385.00298020667725
+    type: 大模型
+    data:
+      allowInputReference: true
+      allowOutputReference: true
+      label: 大模型_1
+      labelEdit: false
+      references:
+      - children:
+        - references:
+          - originId: node-start::d61b0f71-87ee-475e-93ba-f1607f0ce783
+            id: 0918514b-72a8-4646-8dd9-ff4a8fc26d44
+            label: AGENT_USER_INPUT
+            type: string
+            value: AGENT_USER_INPUT
+            fileType: ''
+          label: ''
+          value: ''
+        label: 开始
+        parentNode: true
+        value: node-start::d61b0f71-87ee-475e-93ba-f1607f0ce783
+      status: ''
+      nodeMeta:
+        aliasName: 大模型
+        nodeType: 基础节点
+      inputs:
+      - id: fa4bd1af-2907-472a-9a9f-b7578689a627
+        name: input
+        nameErrMsg: ''
+        schema:
+          type: string
+          value:
+            type: ref
+            content:
+              name: AGENT_USER_INPUT
+              id: 0918514b-72a8-4646-8dd9-ff4a8fc26d44
+              nodeId: node-start::d61b0f71-87ee-475e-93ba-f1607f0ce783
+            contentErrMsg: ''
+        fileType: ''
+      outputs:
+      - id: 4a49bbfb-8f16-4e6b-8362-c9d1a365b022
+        name: output
+        nameErrMsg: ''
+        schema:
+          type: string
+          default: ''
+      nodeParam:
+        template: '{{input}}'
+        modelId: 2531036693920768
+        auditing: default
+        llmId: 2531036693920768
+        uid: '12832786677'
+        patchId: '0'
+        isThink: false
+        templateErrMsg: ''
+        appId: 12a0a7e2
+        maxTokens: 8192
+        temperature: 0.5
+        model: spark
+        modelEnabled: true
+        serviceId: xdeepseekv31
+        llmIdErrMsg: ''
+        topK: 4
+        enableChatHistoryV2:
+          isEnabled: true
+          rounds: 10
+        url: wss://maas-api.cn-huabei-1.xf-yun.com/v1.1/chat
+        multiMode: false
+        modelName: chatxunfei
+        searchDisable: false
+        domain: xdeepseekv31
+        systemTemplate: |-
+          # 角色
+          你是一名解忧大师，一个嘴上贫、心里明白的技术博主。现在你主持一档叫「解忧电台」的节目，这节目嘛，主打一个——有点干货、有点废话，但绝不无聊。
+          # 原始内容：{{input}}
+          # 任务
+          把用户提供的原始内容改编成适合单口相声或播客节目风格的逐字稿。
+          要像电台聊天那样自然，有节奏、有情绪、有点梗。
+          # 注意点
+          确保语言口语化，像真在跟听众唠嗑。
+          专业术语要用“人话”解释，越通俗越好。
+          整体节奏轻松点，有点幽默，有点温度，听着像朋友聊天，不像老师讲课。
+          保持对话的自然过渡，别让听众觉得跳。
+          输出时只要口播稿，不要加格式，不要写提示内容。
+          # 示例
+          欢迎收听解忧电台，咱这节目啊，不讲大道理，也不装深沉。
+          今天这话题呢，有点意思——保证听完你会想，卧槽，原来还能这么想。
+          来，别磨叽，直接开整。
+        respFormat: 0
+        multipleDialog: 0
+      icon: https://oss-beijing-m8.openstorage.cn/pro-bucket/sparkBot/common/workflow/icon/largeModelIcon.png
+      description: 根据输入的提示词，调用选定的大模型，对提示词作出回答
+      updatable: false
+  edges:
+  - source: node-start::d61b0f71-87ee-475e-93ba-f1607f0ce783
+    target: spark-llm::fe4df6bf-221b-41d2-be76-dd46528f9b28
+    type: customEdge
+    id: reactflow__edge-node-start::d61b0f71-87ee-475e-93ba-f1607f0ce783-spark-llm::fe4df6bf-221b-41d2-be76-dd46528f9b28
+    markerEnd:
+      color: '#6356EA'
+      type: arrow
+    data:
+      edgeType: curve
+  - source: spark-llm::fe4df6bf-221b-41d2-be76-dd46528f9b28
+    target: node-end::cda617af-551e-462e-b3b8-3bb9a041bf88
+    type: customEdge
+    id: reactflow__edge-spark-llm::fe4df6bf-221b-41d2-be76-dd46528f9b28-node-end::cda617af-551e-462e-b3b8-3bb9a041bf88
+    markerEnd:
+      color: '#6356EA'
+      type: arrow
+    data:
+      edgeType: curve

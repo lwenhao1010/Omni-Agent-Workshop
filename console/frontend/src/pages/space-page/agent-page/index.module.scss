@@ -1,0 +1,31 @@
+.modelTitle {
+  width: fit-content;
+  height: 32px;
+  white-space: nowrap;
+  font-size: 20px;
+  font-weight: 500;
+  line-height: 32px;
+  color: #000000;
+}
+
+.angentItemBox {
+  padding-bottom: 16px;
+}
+.angentType {
+  box-sizing: border-box;
+  width: fit-content;
+  height: 28px;
+  border-radius: 4px;
+  background: rgba(223, 229, 255, 0.6);
+  font-family: 苹方;
+  font-size: 14px;
+  line-height: 20px;
+  letter-spacing: normal;
+  color: #333333;
+  padding: 4px 8px;
+}
+.only_css {
+  width: 14px !important;
+  height: 14px !important;
+  background-size: 100% 100% !important;
+}

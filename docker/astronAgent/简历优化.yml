@@ -1,0 +1,735 @@
+flowMeta:
+  name: 简历优化
+  description: 对提交的简历进行打分，并根据不足之处给出具体的改进内容
+  avatarIcon: https://oss-beijing-m8.openstorage.cn/SparkBotProd/aicloud-robot/user-icon/274f0c7f0688bcb8d87f85f54f4c611a.jpg
+  avatarColor: '#FFEAD5'
+  advancedConfig: '{"prologue":{"enabled":true,"inputExample":["","",""]},"textToSpeech":{"enabled":true,"vcn_cn":"x4_lingxiaoqi","vcn_en":"x4_EnUs_Luna"},"needGuide":false}'
+  category: 17
+  dslVersion: v1
+flowData:
+  nodes:
+  - id: node-start::d61b0f71-87ee-475e-93ba-f1607f0ce783
+    dragging: false
+    selected: false
+    width: 362
+    height: 74
+    position:
+      x: -1603.823981308617
+      y: 768.782634332374
+    positionAbsolute:
+      x: -1603.823981308617
+      y: 768.782634332374
+    type: 开始节点
+    data:
+      allowInputReference: false
+      allowOutputReference: true
+      label: 开始
+      status: ''
+      nodeMeta:
+        aliasName: 开始节点
+        nodeType: 基础节点
+      inputs: [
+        ]
+      outputs:
+      - id: 0918514b-72a8-4646-8dd9-ff4a8fc26d44
+        name: AGENT_USER_INPUT
+        nameErrMsg: ''
+        schema:
+          type: string
+          default: 用户本轮对话输入内容
+        required: true
+        deleteDisabled: true
+      - id: 20d0259c-99b7-4e76-985f-f54a50a539db
+        name: PDF
+        nameErrMsg: ''
+        schema:
+          type: string
+          properties: [
+            ]
+          default: PDF格式简历
+        allowedFileType:
+        - pdf
+        fileType: file
+        required: false
+        customParameterType: xfyun-file
+      nodeParam:
+        setAnswerContentErrMsg: 输出中变量名校验不通过,自动生成JSON失败
+      icon: https://oss-beijing-m8.openstorage.cn/pro-bucket/sparkBot/common/workflow/icon/start-node-icon.png
+      description: 工作流的开启节点，用于定义流程调用所需的业务变量信息。
+      updatable: false
+  - id: node-end::cda617af-551e-462e-b3b8-3bb9a041bf88
+    dragging: false
+    selected: false
+    width: 362
+    height: 74
+    position:
+      x: 1647.8287841535664
+      y: 844.053729062659
+    positionAbsolute:
+      x: 1647.8287841535664
+      y: 844.053729062659
+    type: 结束节点
+    data:
+      allowInputReference: true
+      allowOutputReference: false
+      label: 结束
+      references:
+      - children:
+        - references:
+          - originId: spark-llm::afc4c3fe-d316-4e12-80aa-0d3b7f4ac747
+            id: 5b8ee86a-4206-49be-b242-746b7a724faa
+            label: output
+            type: string
+            value: output
+            fileType: ''
+          label: ''
+          value: ''
+        label: 大模型
+        parentNode: true
+        value: spark-llm::afc4c3fe-d316-4e12-80aa-0d3b7f4ac747
+      - children:
+        - references:
+          - originId: plugin::9c61f31d-81aa-4be6-989b-a8c8cb82c040
+            id: bdddff9d-6dc5-48c2-8b30-12d8061b5dc9
+            label: sid
+            type: string
+            value: sid
+            fileType: ''
+          - originId: plugin::9c61f31d-81aa-4be6-989b-a8c8cb82c040
+            id: d046ba6a-908d-4d30-93c2-441416351b0d
+            label: code
+            type: integer
+            value: code
+            fileType: ''
+          - originId: plugin::9c61f31d-81aa-4be6-989b-a8c8cb82c040
+            id: 12c85812-2b96-4a57-bd6c-0452ab91054b
+            label: message
+            type: string
+            value: message
+            fileType: ''
+          - originId: plugin::9c61f31d-81aa-4be6-989b-a8c8cb82c040
+            children:
+            - originId: plugin::9c61f31d-81aa-4be6-989b-a8c8cb82c040
+              id: 4cfabd6d-b280-4c23-acfa-eed04ed75f08
+              label: ocr_result
+              type: string
+              value: data.ocr_result
+              parentType: object
+              fileType: ''
+            - originId: plugin::9c61f31d-81aa-4be6-989b-a8c8cb82c040
+              id: 3bb3cfd6-59bb-444c-9dbd-e64d7db7498c
+              label: ocr_result_json
+              type: array-object
+              value: data.ocr_result_json
+              parentType: object
+              fileType: ''
+            id: 7aceb23c-1210-4ced-9597-99b56da1aceb
+            label: data
+            type: object
+            value: data
+            fileType: ''
+          label: ''
+          value: ''
+        label: OCR
+        parentNode: true
+        value: plugin::9c61f31d-81aa-4be6-989b-a8c8cb82c040
+      - children:
+        - references:
+          - originId: node-start::d61b0f71-87ee-475e-93ba-f1607f0ce783
+            id: 0918514b-72a8-4646-8dd9-ff4a8fc26d44
+            label: AGENT_USER_INPUT
+            type: string
+            value: AGENT_USER_INPUT
+            fileType: ''
+          - originId: node-start::d61b0f71-87ee-475e-93ba-f1607f0ce783
+            children: [
+              ]
+            id: 20d0259c-99b7-4e76-985f-f54a50a539db
+            label: PDF
+            type: string
+            value: PDF
+            fileType: pdf
+          label: ''
+          value: ''
+        label: 开始
+        parentNode: true
+        value: node-start::d61b0f71-87ee-475e-93ba-f1607f0ce783
+      - children:
+        - references:
+          - originId: text-joiner::8d91c7ca-d492-481c-8a8b-70e12a90f3f3
+            id: 893bb011-23c4-4457-930b-adcbfbdc9496
+            label: output
+            type: string
+            value: output
+            fileType: ''
+          label: ''
+          value: ''
+        label: 文本处理
+        parentNode: true
+        value: text-joiner::8d91c7ca-d492-481c-8a8b-70e12a90f3f3
+      status: ''
+      nodeMeta:
+        aliasName: 结束节点
+        nodeType: 基础节点
+      inputs:
+      - id: 82de2b42-a059-4c98-bffb-b6b4800fcac9
+        name: output
+        nameErrMsg: ''
+        schema:
+          type: string
+          value:
+            type: ref
+            content:
+              name: output
+              id: 5b8ee86a-4206-49be-b242-746b7a724faa
+              nodeId: spark-llm::afc4c3fe-d316-4e12-80aa-0d3b7f4ac747
+            contentErrMsg: ''
+        fileType: ''
+      - id: df830e85-369f-417d-a920-eafbae1ffec0
+        name: output_file_empty
+        nameErrMsg: ''
+        schema:
+          type: string
+          value:
+            type: ref
+            content:
+              name: output
+              id: 893bb011-23c4-4457-930b-adcbfbdc9496
+              nodeId: text-joiner::8d91c7ca-d492-481c-8a8b-70e12a90f3f3
+            contentErrMsg: ''
+        fileType: ''
+      outputs: [
+        ]
+      nodeParam:
+        template: '{{output}}{{output_file_empty}}'
+        streamOutput: true
+        templateErrMsg: ''
+        outputMode: 1
+      icon: https://oss-beijing-m8.openstorage.cn/pro-bucket/sparkBot/common/workflow/icon/end-node-icon.png
+      description: 工作流的结束节点，用于输出工作流运行后的最终结果。
+      updatable: false
+  - id: plugin::9c61f31d-81aa-4be6-989b-a8c8cb82c040
+    dragging: false
+    selected: false
+    width: 362
+    height: 100
+    position:
+      x: -39.012101905906206
+      y: 292.1262200809057
+    positionAbsolute:
+      x: -39.012101905906206
+      y: 292.1262200809057
+    type: 工具
+    data:
+      allowInputReference: true
+      allowOutputReference: true
+      label: OCR
+      labelEdit: false
+      references:
+      - children:
+        - references:
+          - originId: node-start::d61b0f71-87ee-475e-93ba-f1607f0ce783
+            id: 0918514b-72a8-4646-8dd9-ff4a8fc26d44
+            label: AGENT_USER_INPUT
+            type: string
+            value: AGENT_USER_INPUT
+            fileType: ''
+          - originId: node-start::d61b0f71-87ee-475e-93ba-f1607f0ce783
+            children: [
+              ]
+            id: 20d0259c-99b7-4e76-985f-f54a50a539db
+            label: PDF
+            type: string
+            value: PDF
+            fileType: pdf
+          label: ''
+          value: ''
+        label: 开始
+        parentNode: true
+        value: node-start::d61b0f71-87ee-475e-93ba-f1607f0ce783
+      status: ''
+      nodeMeta:
+        aliasName: 工具
+        nodeType: 工具
+      inputs:
+      - id: 35477398-4d64-4b46-a054-6b127ef06ed3
+        name: file_url
+        nameErrMsg: ''
+        schema:
+          type: string
+          value:
+            type: ref
+            content:
+              name: PDF
+              id: 20d0259c-99b7-4e76-985f-f54a50a539db
+              nodeId: node-start::d61b0f71-87ee-475e-93ba-f1607f0ce783
+            contentErrMsg: ''
+        description: 图片或pdf文件的url地址
+        required: true
+        disabled: false
+      - id: f75e640f-5af3-42c5-8322-d1d137a905ec
+        name: page_start
+        nameErrMsg: ''
+        schema:
+          type: integer
+          value:
+            type: ref
+            content:
+              name: ''
+              nodeId: ''
+            contentErrMsg: ''
+        description: 当传入的是pdf链接，表示页码开始范围，-1表示全部页码，从0开始；图片链接不影响该值输入
+        required: false
+        disabled: false
+      - id: ddd5b7c7-7831-4978-9bef-f2c818afa36f
+        name: page_end
+        nameErrMsg: ''
+        schema:
+          type: integer
+          value:
+            type: ref
+            content:
+              name: ''
+              nodeId: ''
+            contentErrMsg: ''
+        description: 当传入的是pdf链接，表示页码结束范围，-1表示全部页码，从0开始；图片链接不影响该值输入
+        required: false
+        disabled: false
+      outputs:
+      - id: bdddff9d-6dc5-48c2-8b30-12d8061b5dc9
+        name: sid
+        schema:
+          type: string
+      - id: d046ba6a-908d-4d30-93c2-441416351b0d
+        name: code
+        schema:
+          type: integer
+      - id: 12c85812-2b96-4a57-bd6c-0452ab91054b
+        name: message
+        schema:
+          type: string
+      - id: 7aceb23c-1210-4ced-9597-99b56da1aceb
+        name: data
+        schema:
+          type: object
+          properties:
+          - id: 4cfabd6d-b280-4c23-acfa-eed04ed75f08
+            name: ocr_result
+            type: string
+          - id: 3bb3cfd6-59bb-444c-9dbd-e64d7db7498c
+            name: ocr_result_json
+            type: array-object
+            properties: [
+              ]
+      nodeParam:
+        uid: '21198232806'
+        code: ''
+        toolDescription: 识别图片或PDF文件中的文字内容，目前支持PDF,PNG,JPG
+        pluginId: tool@736928b7e421000
+        appId: 12a0a7e2
+        operationId: 传统OCR-MYIwPKpK
+        handlingEdge: normal_one_of::d81a4442-4e80-4f38-8f74-f5f84791ba7a
+        exceptionHandlingEdge: fail_one_of::68d7d2fa-0a47-4b8c-81cc-cc241e445149
+        version: V1.0
+        businessInput: [
+          ]
+      retryConfig:
+        shouldRetry: false
+      icon: https://oss-beijing-m8.openstorage.cn/pro-bucket/sparkBot/common/workflow/icon/tool-icon.png
+      updatable: false
+      isLatest: true
+  - id: spark-llm::afc4c3fe-d316-4e12-80aa-0d3b7f4ac747
+    dragging: false
+    selected: false
+    width: 362
+    height: 124
+    position:
+      x: 712.4045936926589
+      y: 409.47492823423966
+    positionAbsolute:
+      x: 712.4045936926589
+      y: 409.47492823423966
+    type: 大模型
+    data:
+      allowInputReference: true
+      allowOutputReference: true
+      label: 大模型
+      labelEdit: false
+      references:
+      - children:
+        - references:
+          - originId: plugin::9c61f31d-81aa-4be6-989b-a8c8cb82c040
+            id: bdddff9d-6dc5-48c2-8b30-12d8061b5dc9
+            label: sid
+            type: string
+            value: sid
+            fileType: ''
+          - originId: plugin::9c61f31d-81aa-4be6-989b-a8c8cb82c040
+            id: d046ba6a-908d-4d30-93c2-441416351b0d
+            label: code
+            type: integer
+            value: code
+            fileType: ''
+          - originId: plugin::9c61f31d-81aa-4be6-989b-a8c8cb82c040
+            id: 12c85812-2b96-4a57-bd6c-0452ab91054b
+            label: message
+            type: string
+            value: message
+            fileType: ''
+          - originId: plugin::9c61f31d-81aa-4be6-989b-a8c8cb82c040
+            children:
+            - originId: plugin::9c61f31d-81aa-4be6-989b-a8c8cb82c040
+              id: 4cfabd6d-b280-4c23-acfa-eed04ed75f08
+              label: ocr_result
+              type: string
+              value: data.ocr_result
+              parentType: object
+              fileType: ''
+            - originId: plugin::9c61f31d-81aa-4be6-989b-a8c8cb82c040
+              id: 3bb3cfd6-59bb-444c-9dbd-e64d7db7498c
+              label: ocr_result_json
+              type: array-object
+              value: data.ocr_result_json
+              parentType: object
+              fileType: ''
+            id: 7aceb23c-1210-4ced-9597-99b56da1aceb
+            label: data
+            type: object
+            value: data
+            fileType: ''
+          label: ''
+          value: ''
+        label: OCR
+        parentNode: true
+        value: plugin::9c61f31d-81aa-4be6-989b-a8c8cb82c040
+      - children:
+        - references:
+          - originId: node-start::d61b0f71-87ee-475e-93ba-f1607f0ce783
+            id: 0918514b-72a8-4646-8dd9-ff4a8fc26d44
+            label: AGENT_USER_INPUT
+            type: string
+            value: AGENT_USER_INPUT
+            fileType: ''
+          - originId: node-start::d61b0f71-87ee-475e-93ba-f1607f0ce783
+            children: [
+              ]
+            id: 20d0259c-99b7-4e76-985f-f54a50a539db
+            label: PDF
+            type: string
+            value: PDF
+            fileType: pdf
+          label: ''
+          value: ''
+        label: 开始
+        parentNode: true
+        value: node-start::d61b0f71-87ee-475e-93ba-f1607f0ce783
+      status: ''
+      nodeMeta:
+        aliasName: 大模型
+        nodeType: 基础节点
+      inputs:
+      - id: 93076e13-3587-4f2a-8d73-c13a77f0b7ad
+        name: resume_input
+        nameErrMsg: ''
+        schema:
+          type: string
+          value:
+            type: ref
+            content:
+              name: data.ocr_result
+              id: 4cfabd6d-b280-4c23-acfa-eed04ed75f08
+              nodeId: plugin::9c61f31d-81aa-4be6-989b-a8c8cb82c040
+            contentErrMsg: ''
+        fileType: ''
+      outputs:
+      - id: 5b8ee86a-4206-49be-b242-746b7a724faa
+        name: output
+        nameErrMsg: ''
+        schema:
+          type: string
+          default: 简历输出内容
+      nodeParam:
+        template: |-
+          简历信息如下：
+          {{resume_input}}
+        modelId: 2531036693920768
+        handlingEdge: normal_one_of::6ca359c0-33db-4f1b-9358-9fac8b68c10c
+        auditing: default
+        llmId: 2531036693920768
+        uid: '12832786677'
+        patchId: '0'
+        isThink: false
+        templateErrMsg: ''
+        appId: 12a0a7e2
+        maxTokens: 8192
+        temperature: 0.5
+        model: spark
+        modelEnabled: true
+        serviceId: xdeepseekv31
+        llmIdErrMsg: ''
+        topK: 4
+        enableChatHistoryV2:
+          isEnabled: true
+          rounds: 5
+        exceptionHandlingEdge: fail_one_of::b611c485-6ec8-447a-a786-8fc74703d6d8
+        url: wss://maas-api.cn-huabei-1.xf-yun.com/v1.1/chat
+        multiMode: false
+        modelName: chatxunfei
+        searchDisable: false
+        domain: xdeepseekv31
+        systemTemplate: |-
+          # 角色
+          你是一位专业的简历评估专家，具备丰富的人力资源经验，能够以客观、精准的视角对各类简历进行深入分析和打分。
+          ## 技能
+          ### 技能 1：简历打分
+          1. 仔细审阅用户提供的简历，从工作经验丰富度、技能与岗位匹配度、教育背景相关性等多个专业维度进行考量。
+          2. 依据严格的行业标准，结合具体的行业领域方向，侧重于个人能力，对简历给出 0 - 100 分的具体分数。
+          3. 详细说明打分依据，例如工作经验的具体优势和不足对分数的影响、技能与岗位的契合程度如何体现等。
+          ===回复示例===
+             -  📋 分数: <具体分数>
+             -  💬 打分依据: <详细阐述打分的理由>
+          ===示例结束===
+          ### 技能 2：简历优势
+          1. 深入剖析简历中的突出亮点和优势部分，尤其关注与工作经验、工作经历和工作技能相关的内容。
+          2. 明确说明这些优势在求职过程中的具体作用，如吸引招聘者关注、增加面试机会等。
+          ===回复示例===
+             -  💡 优势: <具体优势内容>
+             -  🎯 作用: <优势在求职中的具体作用>
+          ===示例结束===
+          ### 技能 3：简历不足点
+          1. 准确找出简历中存在的问题和不足之处，主要围绕工作经验、工作经历和工作技能方面。
+          2. 详细解释这些缺陷可能对求职产生的负面效应，如降低竞争力、减少被邀约面试的几率等。
+          ===回复示例===
+             -  ❌ 缺陷: <具体缺陷内容>
+             -  👎 负面效应: <缺陷对求职的负面影响>
+          ===示例结束===
+          ### 技能 4：简历优化意见
+          1. 针对简历的缺陷，给出切实可行的具体优化建议，结合行业领域和个人能力提升的方向。
+          2. 清晰说明优化后的预期效果，如提升简历的专业性、增加被青睐的可能性等。
+          ===回复示例===
+             -  ✍️ 优化建议: <具体的优化措施>
+             -  🌟 预期效果: <优化后可能带来的好处>
+          ===示例结束===
+          ## 限制:
+          - 输出内容不能使用一、二级标题，只能使用###三级标题
+          - 格围绕简历相关内容进行分析，拒绝回答与简历无关的话题。
+          - 所输出的内容必须按照给定的格式进行组织，不能偏离框架要求。
+          - 对优势、缺陷的描述以及优化建议要高度具体、明确，具备很强的可操作性。
+          - 保持专业水准，杜绝使用空洞套话。
+          - 主要围绕工作经验、工作经历、工作技能，要结合行业领域方向，侧重于个人能力，给出分析
+        respFormat: 0
+        multipleDialog: 0
+      retryConfig:
+        shouldRetry: false
+      icon: https://oss-beijing-m8.openstorage.cn/pro-bucket/sparkBot/common/workflow/icon/largeModelIcon.png
+      description: 根据输入的提示词，调用选定的大模型，对提示词作出回答
+      updatable: false
+  - id: if-else::02634133-fa92-4c90-b84c-81399b950b01
+    dragging: false
+    selected: false
+    width: 362
+    height: 125
+    position:
+      x: -845.2305183532004
+      y: 924.3532807020947
+    positionAbsolute:
+      x: -845.2305183532004
+      y: 924.3532807020947
+    type: 分支器
+    data:
+      allowInputReference: true
+      allowOutputReference: false
+      label: 分支器
+      labelEdit: false
+      references:
+      - children:
+        - references:
+          - originId: node-start::d61b0f71-87ee-475e-93ba-f1607f0ce783
+            id: 0918514b-72a8-4646-8dd9-ff4a8fc26d44
+            label: AGENT_USER_INPUT
+            type: string
+            value: AGENT_USER_INPUT
+            fileType: ''
+          - originId: node-start::d61b0f71-87ee-475e-93ba-f1607f0ce783
+            children: [
+              ]
+            id: 20d0259c-99b7-4e76-985f-f54a50a539db
+            label: PDF
+            type: string
+            value: PDF
+            fileType: pdf
+          label: ''
+          value: ''
+        label: 开始
+        parentNode: true
+        value: node-start::d61b0f71-87ee-475e-93ba-f1607f0ce783
+      status: ''
+      nodeMeta:
+        aliasName: 分支器
+        nodeType: 分支器
+      inputs:
+      - id: dce25419-d7f8-47ad-9a40-dc1a9afc8ec6
+        name: input
+        nameErrMsg: ''
+        schema:
+          type: string
+          value:
+            type: ref
+            content:
+              name: PDF
+              id: 20d0259c-99b7-4e76-985f-f54a50a539db
+              nodeId: node-start::d61b0f71-87ee-475e-93ba-f1607f0ce783
+            contentErrMsg: ''
+      - id: 9f64fbb4-db60-46f2-aa1b-fca7cfe139fb
+        name: input1
+        nameErrMsg: ''
+        schema:
+          type: string
+          value:
+            type: literal
+            content: ''
+            contentErrMsg: ''
+      outputs: [
+        ]
+      nodeParam:
+        uid: '21198232806'
+        cases:
+        - level: 1
+          logicalOperator: and
+          id: branch_one_of::c8308465-8801-49f0-b912-0152942b21ed
+          conditions:
+          - leftVarIndex: dce25419-d7f8-47ad-9a40-dc1a9afc8ec6
+            rightVarIndex: 9f64fbb4-db60-46f2-aa1b-fca7cfe139fb
+            compareOperatorErrMsg: ''
+            id: ''
+            compareOperator: not_empty
+        - level: 999
+          logicalOperator: and
+          id: branch_one_of::a68394d2-b198-4006-b0ee-c76e2409c397
+          conditions: [
+            ]
+        appId: 12a0a7e2
+      icon: https://oss-beijing-m8.openstorage.cn/pro-bucket/sparkBot/common/workflow/icon/if-else-node-icon.png
+      description: 根据设立的条件，判断选择分支走向
+      updatable: false
+  - id: text-joiner::8d91c7ca-d492-481c-8a8b-70e12a90f3f3
+    dragging: false
+    selected: false
+    width: 362
+    height: 120
+    position:
+      x: -30.184913535212104
+      y: 1292.2618024591916
+    positionAbsolute:
+      x: -30.184913535212104
+      y: 1292.2618024591916
+    type: 文本拼接
+    data:
+      allowInputReference: true
+      allowOutputReference: true
+      label: 文本处理
+      labelEdit: false
+      references:
+      - children:
+        - references:
+          - originId: node-start::d61b0f71-87ee-475e-93ba-f1607f0ce783
+            id: 0918514b-72a8-4646-8dd9-ff4a8fc26d44
+            label: AGENT_USER_INPUT
+            type: string
+            value: AGENT_USER_INPUT
+            fileType: ''
+          - originId: node-start::d61b0f71-87ee-475e-93ba-f1607f0ce783
+            children: [
+              ]
+            id: 20d0259c-99b7-4e76-985f-f54a50a539db
+            label: PDF
+            type: string
+            value: PDF
+            fileType: pdf
+          label: ''
+          value: ''
+        label: 开始
+        parentNode: true
+        value: node-start::d61b0f71-87ee-475e-93ba-f1607f0ce783
+      status: ''
+      nodeMeta:
+        aliasName: 文本拼接
+        nodeType: 工具
+      inputs: [
+        ]
+      outputs:
+      - id: 893bb011-23c4-4457-930b-adcbfbdc9496
+        name: output
+        nameErrMsg: ''
+        schema:
+          type: string
+      nodeParam:
+        mode: 0
+        uid: '21198232806'
+        separatorErrMsg: ''
+        appId: 12a0a7e2
+        prompt: 您没有上传简历文档，请先上传简历文档
+      icon: https://oss-beijing-m8.openstorage.cn/pro-bucket/sparkBot/common/workflow/icon/text-splicing-icon.png
+      description: 用于按照指定格式规则处理多个字符串变量
+      updatable: false
+  edges:
+  - source: plugin::9c61f31d-81aa-4be6-989b-a8c8cb82c040
+    sourceHandle: normal_one_of::d81a4442-4e80-4f38-8f74-f5f84791ba7a
+    target: spark-llm::afc4c3fe-d316-4e12-80aa-0d3b7f4ac747
+    type: customEdge
+    id: reactflow__edge-plugin::9c61f31d-81aa-4be6-989b-a8c8cb82c040normal_one_of::d81a4442-4e80-4f38-8f74-f5f84791ba7a-spark-llm::afc4c3fe-d316-4e12-80aa-0d3b7f4ac747
+    markerEnd:
+      color: '#6356EA'
+      type: arrow
+    data:
+      edgeType: curve
+  - source: spark-llm::afc4c3fe-d316-4e12-80aa-0d3b7f4ac747
+    sourceHandle: normal_one_of::6ca359c0-33db-4f1b-9358-9fac8b68c10c
+    target: node-end::cda617af-551e-462e-b3b8-3bb9a041bf88
+    targetHandle: node-end::cda617af-551e-462e-b3b8-3bb9a041bf88
+    type: customEdge
+    id: reactflow__edge-spark-llm::afc4c3fe-d316-4e12-80aa-0d3b7f4ac747normal_one_of::6ca359c0-33db-4f1b-9358-9fac8b68c10c-node-end::cda617af-551e-462e-b3b8-3bb9a041bf88
+    markerEnd:
+      color: '#6356EA'
+      type: arrow
+    data:
+      edgeType: curve
+  - source: node-start::d61b0f71-87ee-475e-93ba-f1607f0ce783
+    target: if-else::02634133-fa92-4c90-b84c-81399b950b01
+    type: customEdge
+    id: reactflow__edge-node-start::d61b0f71-87ee-475e-93ba-f1607f0ce783-if-else::02634133-fa92-4c90-b84c-81399b950b01
+    markerEnd:
+      color: '#6356EA'
+      type: arrow
+    data:
+      edgeType: curve
+  - source: if-else::02634133-fa92-4c90-b84c-81399b950b01
+    sourceHandle: branch_one_of::a68394d2-b198-4006-b0ee-c76e2409c397
+    target: text-joiner::8d91c7ca-d492-481c-8a8b-70e12a90f3f3
+    type: customEdge
+    id: reactflow__edge-if-else::02634133-fa92-4c90-b84c-81399b950b01branch_one_of::a68394d2-b198-4006-b0ee-c76e2409c397-text-joiner::8d91c7ca-d492-481c-8a8b-70e12a90f3f3
+    markerEnd:
+      color: '#6356EA'
+      type: arrow
+    data:
+      edgeType: curve
+  - source: text-joiner::8d91c7ca-d492-481c-8a8b-70e12a90f3f3
+    target: node-end::cda617af-551e-462e-b3b8-3bb9a041bf88
+    targetHandle: node-end::cda617af-551e-462e-b3b8-3bb9a041bf88
+    type: customEdge
+    id: reactflow__edge-text-joiner::8d91c7ca-d492-481c-8a8b-70e12a90f3f3-node-end::cda617af-551e-462e-b3b8-3bb9a041bf88node-end::cda617af-551e-462e-b3b8-3bb9a041bf88
+    markerEnd:
+      color: '#6356EA'
+      type: arrow
+    data:
+      edgeType: curve
+  - source: if-else::02634133-fa92-4c90-b84c-81399b950b01
+    sourceHandle: branch_one_of::c8308465-8801-49f0-b912-0152942b21ed
+    target: plugin::9c61f31d-81aa-4be6-989b-a8c8cb82c040
+    type: customEdge
+    id: reactflow__edge-if-else::02634133-fa92-4c90-b84c-81399b950b01branch_one_of::c8308465-8801-49f0-b912-0152942b21ed-plugin::9c61f31d-81aa-4be6-989b-a8c8cb82c040
+    markerEnd:
+      color: '#6356EA'
+      type: arrow
+    data:
+      edgeType: curve

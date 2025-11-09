@@ -1,0 +1,14 @@
+{
+  "permissions": {
+    "ask": [
+      "Read(!/Users/itwanger/Documents/GitHub/astron-agent/docker/astronAgent/**)",
+      "Edit(!/Users/itwanger/Documents/GitHub/astron-agent/docker/astronAgent/**)"
+    ],
+    "allow": [
+      "Read(/Users/itwanger/Documents/GitHub/astron-agent/docker/astronAgent/**)",
+      "Edit(/Users/itwanger/Documents/GitHub/astron-agent/docker/astronAgent/**)"
+    ]
+  },
+  "memoryImport": {},
+  "monitoring": {}
+}
