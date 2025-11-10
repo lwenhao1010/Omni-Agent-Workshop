@@ -27,6 +27,10 @@
    实时交互数字人智能体
 </div>
 
+
+工作流智能体视频演示效果：https://lwh.lwenhao.cn/rgzndl/resume.mp4
+实时交互数字人智能体演示效果：https://lwh.lwenhao.cn/rgzndl/number.mp4
+
 ### 核心能力
 
 - **AI 内容改写**：集成科大讯飞的大模型，将普通文本智能改编为电台特色的播客风格逐字稿
