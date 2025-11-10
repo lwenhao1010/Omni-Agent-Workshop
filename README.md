@@ -13,18 +13,17 @@
 
 **Omni-Agent Workshop（多维智能体工坊）** 是一个基于科大讯飞 Astron—Agent 二次开发的 多维智能体平台。在本地部署的平台上搭建了三种不同类型的智能体，分别为指令型、工作流以及实时交互数字人。**指令型智能体**是一个精通多种语言的程序员。能够帮助用户高效完成各类编程语言相关的开发任务，提供高质量代码解决方案。**工作流智能体**是一个对用户提交的简历进行打分并根据不足给出改进的简历优化工作流。**实时交互数字人智能体**是一个解忧平台主持人，能将用户的内容转化为流畅、幽默的节目文本，确保每句话都能引起观众的共鸣。通过智能体工作流的编排，将用户输入的文本内容自动改写为播客风格的口播稿，并使用讯飞超拟人合成技术生成高质量语音。同时虚拟人会对内容进行播报。
 <div align=center>
-<img src="https://github.com/BIT-MJY/Active-SLAM-Based-on-Information-Theory/blob/master/img/1-2.png"/>
+<img src="https://github.com/lwenhao1010/xunfei-Astron-Agent/blob/main/images/codeagent.png"/>
+   指令型智能体
 </div>
 
-<div align="center">
-![指令型智能体](images/codeagent.png)
+<div align=center>
+<img src="https://github.com/lwenhao1010/xunfei-Astron-Agent/blob/main/images/workagent.png"/>
+   工作流智能体
 </div>
-<div align="center">
-![工作流智能体](images/workagent.png)
-</div>
-
-<div align="center">
-![实时交互数字人智能体](images/numberagent.png)
+<div align=center>
+<img src="https://github.com/lwenhao1010/xunfei-Astron-Agent/blob/main/images/numberagent.png"/>
+   实时交互数字人智能体
 </div>
 
 ### 核心能力
