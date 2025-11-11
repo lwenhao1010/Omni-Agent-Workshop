@@ -12,49 +12,42 @@
 
 ## 📻 项目简介
 
-**Omni-Agent Workshop（多维智能体工坊）** 是一个基于科大讯飞Astron—Agent二次开发的多维智能体平台。在本地部署的平台上搭建了三种不同类型的智能体，分别为指令型、工作流以及实时交互数字人。
+   **Omni-Agent Workshop（多维智能体工坊）** 是一个基于科大讯飞Astron—Agent二次开发的多维智能体平台。在本地部署的平台上搭建了三种不同类型的智能体，分别为指令型、工作流以及实时交互数字人。
 
 <div></div>
 
-**指令型智能体**是一个精通多种语言的程序员。能够帮助用户高效完成各类编程语言相关的开发任务，提供高质量代码解决方案。
+   **指令型智能体**是一个精通多种语言的程序员。能够帮助用户高效完成各类编程语言相关的开发任务，提供高质量代码解决方案。
 
 <div></div>
 
-**工作流智能体**是一个对用户提交的简历进行打分并根据不足给出改进的简历优化工作流。
+   **工作流智能体**是一个对用户提交的简历进行打分并根据不足给出改进的简历优化工作流。
 
 <div></div>
 
-**实时交互数字人智能体**是一个解忧平台主持人，能将用户的内容转化为流畅、幽默的节目文本，确保每句话都能引起观众的共鸣。通过智能体工作流的编排，将用户输入的文本内容自动改写为播客风格的口播稿，并使用讯飞超拟人合成技术生成高质量语音。同时虚拟人会对内容进行播报。
+   **实时交互数字人智能体**是一个解忧平台主持人，能将用户的内容转化为流畅、幽默的节目文本，确保每句话都能引起观众的共鸣。通过智能体工作流的编排，将用户输入的文本内容自动改写为播客风格的口播稿，并使用讯飞超拟人合成技术生成高质量语音。同时虚拟人会对内容进行播报。
 
-<div></div>
-
+下图为指令型智能体的界面使用截图
 <div align=center>
 <img src="https://github.com/lwenhao1010/xunfei-Astron-Agent/blob/main/images/codeagent.png"/>
-   指令型智能体
-   <div></div>
+   指令型智能体<div></div>
 </div>
+<div></div>
+下图为工作流智能体的界面使用截图
 <div align=center>
 <img src="https://github.com/lwenhao1010/xunfei-Astron-Agent/blob/main/images/workagent.png"/>
-   工作流智能体
-   <div></div>
+   工作流智能体<div></div>
 </div>
 <div></div>
+下图为实时交互数字人智能体的界面使用截图
 <div align=center>
 <img src="https://github.com/lwenhao1010/xunfei-Astron-Agent/blob/main/images/numberagent.png"/>
-   实时交互数字人智能体
-   <div></div>
+   实时交互数字人智能体<div></div>
 </div>
-<div></div>
 
-<div></div>
 
-**工作流智能体演示效果**：https://lwh.lwenhao.cn/rgzndl/resume.mp4
+**工作流智能体演示效果**：https://lwh.lwenhao.cn/rgzndl/resume.mp4<div></div>
 
-<div></div>
-
-**实时交互数字人智能体演示效果**：https://lwh.lwenhao.cn/rgzndl/number.mp4
-
-<div></div>
+**实时交互数字人智能体演示效果**：https://lwh.lwenhao.cn/rgzndl/number.mp4<div></div>
 
 ### 核心能力
 
@@ -111,42 +104,38 @@ docker compose ps
    <div></div>
 </div>
 
-- **应用后端**：http://localhost8000
-
+- **应用后端**：http://localhost8000<div></div>
 <div align=center>
 <img src="https://github.com/lwenhao1010/xunfei-Astron-Agent/blob/main/images/casdoor.png"/>
-   应用后端登录界面
-   <div></div>
+   应用后端登录界面<div></div>
 </div>
 
 - **默认账户**：admin123
-- **默认密码**：admin123
-
+- **默认密码**：admin123<div></div>
 <div align=center>
 <img src="https://github.com/lwenhao1010/xunfei-Astron-Agent/blob/main/images/first ui.png"/>
-   应用前端界面
-   <div></div>
+   应用前端界面<div></div>
 </div>
 <div align=center>
 <img src="https://github.com/lwenhao1010/xunfei-Astron-Agent/blob/main/images/casdoor ui.png"/>
-   应用后端界面
-   <div></div>
+   应用后端界面<div></div>
 </div>
 
 ## 📖 使用指南
 
 ### 1.添加大模型
 
-1. 登录系统后，进入「提示词」页面
-2. 创建新提示词，配置以下内容：
-   - **通用配置**：智能体的提示词
-   - **高级配置**：大模型的相关配置
+1. 登录系统后，进入「模型管理」页面
+2. 创建新的大模型，配置以下内容：
+   - **模型名称**：自己随意定义即可
+   - **model**：使用的大模型类型，如xdeepseekv31
+   - **模型描述**：自己随意定义即可
+   - **接口地址**：使用的大模型的API接口
+   - **密钥**：使用的大模型的API的key值
 3. 创建并进行保存
-4. 用户输入问题，智能体就会进行解答
 <div align=center>
 <img src="https://github.com/lwenhao1010/xunfei-Astron-Agent/blob/main/images/big model.png"/>
-   添加大模型
-   <div></div>
+   添加大模型<div></div>
 </div>
 
 ### 2.创建指令型智能体
@@ -159,8 +148,7 @@ docker compose ps
 4. 用户输入问题，智能体就会进行解答
 <div align=center>
 <img src="https://github.com/lwenhao1010/xunfei-Astron-Agent/blob/main/images/order.png"/>
-   创建指令型智能体
-   <div></div>
+   创建指令型智能体<div></div>
 </div>
 
 ### 3.创建工作流智能体
@@ -177,8 +165,7 @@ docker compose ps
 4. 输入文本和简历文件，即可得到简历的得分和相关改进内容
 <div align=center>
 <img src="https://github.com/lwenhao1010/xunfei-Astron-Agent/blob/main/images/workflow.png"/>
-   创建工作流智能体
-   <div></div>
+   创建工作流智能体<div></div>
 </div>
 
 #### 工作流智能体配置示例
@@ -242,8 +229,7 @@ docker compose ps
 4. 输入文本，即可生成虚拟人的在线解忧
 <div align=center>
 <img src="https://github.com/lwenhao1010/xunfei-Astron-Agent/blob/main/images/real-time.png"/>
-   创建实时交互数字人智能体
-   <div></div>
+   创建实时交互数字人智能体<div></div>
 </div>
 
 #### 实时交互数字人智能体配置示例
@@ -277,8 +263,7 @@ docker compose ps
 
 <div align=center>
 <img src="https://github.com/lwenhao1010/xunfei-Astron-Agent/blob/main/images/final ui.png"/>
-   工坊界面
-   <div></div>
+   工坊界面<div></div>
 </div>
 
 ## 🛠️ 技术架构
