@@ -1,4 +1,4 @@
-# Omni-Agent Workshop|多维智能体工坊
+# Omni-Agent Workshop | 多维智能体工坊
 
 
 <div align="center">
