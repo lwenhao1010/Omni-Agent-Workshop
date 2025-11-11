@@ -112,14 +112,12 @@ docker compose ps
    应用前端登录界面
    <div></div>
 </div>
-<br></br>
 
 - **应用后端**：http://localhost8000<div></div>
 <div align=center>
 <img src="https://github.com/lwenhao1010/xunfei-Astron-Agent/blob/main/images/casdoor.png"/>
    应用后端登录界面<div></div>
 </div>
-<br></br>
 
 - **默认账户**：admin123
 - **默认密码**：admin123<div></div>
@@ -127,12 +125,10 @@ docker compose ps
 <img src="https://github.com/lwenhao1010/xunfei-Astron-Agent/blob/main/images/first ui.png"/>
    应用前端界面<div></div>
 </div>
-<br></br>
 <div align=center>
 <img src="https://github.com/lwenhao1010/xunfei-Astron-Agent/blob/main/images/casdoor ui.png"/>
    应用后端界面<div></div>
 </div>
-<br></br>
 
 ## 📖 使用指南
 
@@ -150,7 +146,6 @@ docker compose ps
 <img src="https://github.com/lwenhao1010/xunfei-Astron-Agent/blob/main/images/big model.png"/>
    添加大模型<div></div>
 </div>
-<br></br>
 
 ### 2.创建指令型智能体
 
@@ -164,7 +159,6 @@ docker compose ps
 <img src="https://github.com/lwenhao1010/xunfei-Astron-Agent/blob/main/images/order.png"/>
    创建指令型智能体<div></div>
 </div>
-<br></br>
 
 ### 3.创建工作流智能体
 
@@ -182,7 +176,6 @@ docker compose ps
 <img src="https://github.com/lwenhao1010/xunfei-Astron-Agent/blob/main/images/workflow.png"/>
    创建工作流智能体<div></div>
 </div>
-<br></br>
 
 #### 工作流智能体配置示例
 
@@ -247,7 +240,6 @@ docker compose ps
 <img src="https://github.com/lwenhao1010/xunfei-Astron-Agent/blob/main/images/real-time.png"/>
    创建实时交互数字人智能体<div></div>
 </div>
-<br></br>
 
 #### 实时交互数字人智能体配置示例
 
