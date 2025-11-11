@@ -70,7 +70,7 @@
 <div></div>
 
 **开箱即用**
--平台提供了基于 Docker Compose 的一键部署方案，无需复杂配置。
+- 平台提供了基于 Docker Compose 的一键部署方案，无需复杂配置。
 <div></div>
 
 ### 技术特点
