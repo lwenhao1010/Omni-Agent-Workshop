@@ -104,22 +104,32 @@ docker compose ps
 启动完成后，访问以下地址：
 
 - **应用前端**：http://localhost
+
 <div align=center>
 <img src="https://github.com/lwenhao1010/xunfei-Astron-Agent/blob/main/images/astron.png"/>
    应用前端登录界面
    <div></div>
 </div>
+
 - **应用后端**：http://localhost8000
+
 <div align=center>
 <img src="https://github.com/lwenhao1010/xunfei-Astron-Agent/blob/main/images/casdoor.png"/>
    应用后端登录界面
    <div></div>
 </div>
+
 - **默认账户**：admin123
 - **默认密码**：admin123
+
 <div align=center>
 <img src="https://github.com/lwenhao1010/xunfei-Astron-Agent/blob/main/images/first ui.png"/>
    应用前端界面
+   <div></div>
+</div>
+<div align=center>
+<img src="https://github.com/lwenhao1010/xunfei-Astron-Agent/blob/main/images/casdoor ui.png"/>
+   应用后端界面
    <div></div>
 </div>
 
@@ -134,8 +144,8 @@ docker compose ps
 3. 创建并进行保存
 4. 用户输入问题，智能体就会进行解答
 <div align=center>
-<img src="https://github.com/lwenhao1010/xunfei-Astron-Agent/blob/main/images/codeagent.png"/>
-   指令型智能体
+<img src="https://github.com/lwenhao1010/xunfei-Astron-Agent/blob/main/images/big model.png"/>
+   添加大模型
    <div></div>
 </div>
 
@@ -147,7 +157,11 @@ docker compose ps
    - **高级配置**：大模型的相关配置
 3. 创建并进行保存
 4. 用户输入问题，智能体就会进行解答
-5. ![image-20251110234014027](C:\Users\15513\AppData\Roaming\Typora\typora-user-images\image-20251110234014027.png)
+<div align=center>
+<img src="https://github.com/lwenhao1010/xunfei-Astron-Agent/blob/main/images/order.png"/>
+   创建指令型智能体
+   <div></div>
+</div>
 
 ### 3.创建工作流智能体
 
@@ -161,7 +175,11 @@ docker compose ps
    - **结束节点**：输出大模型的思考结果
 3. 保存并运行工作流
 4. 输入文本和简历文件，即可得到简历的得分和相关改进内容
-5. ![image-20251110234442435](C:\Users\15513\AppData\Roaming\Typora\typora-user-images\image-20251110234442435.png)
+<div align=center>
+<img src="https://github.com/lwenhao1010/xunfei-Astron-Agent/blob/main/images/workflow.png"/>
+   创建工作流智能体
+   <div></div>
+</div>
 
 #### 工作流智能体配置示例
 
@@ -222,7 +240,11 @@ docker compose ps
    - **结束节点**：输出大模型的思考结果
 3. 保存并运行
 4. 输入文本，即可生成虚拟人的在线解忧
-5. ![image-20251110234539653](C:\Users\15513\AppData\Roaming\Typora\typora-user-images\image-20251110234539653.png)
+<div align=center>
+<img src="https://github.com/lwenhao1010/xunfei-Astron-Agent/blob/main/images/real-time.png"/>
+   创建实时交互数字人智能体
+   <div></div>
+</div>
 
 #### 实时交互数字人智能体配置示例
 
@@ -253,7 +275,11 @@ docker compose ps
 
 ### 5.工坊界面
 
-![image-20251110235200825](C:\Users\15513\AppData\Roaming\Typora\typora-user-images\image-20251110235200825.png)
+<div align=center>
+<img src="https://github.com/lwenhao1010/xunfei-Astron-Agent/blob/main/images/final ui.png"/>
+   工坊界面
+   <div></div>
+</div>
 
 ## 🛠️ 技术架构
 
